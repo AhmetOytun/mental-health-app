@@ -1,0 +1,48 @@
+import { Images } from "@/definitions";
+
+const path = "@/assets/images/";
+
+const images: Images = {
+  homeSelected: require(path + "home/homeSelected.png"),
+  homeUnselected: require(path + "home/homeUnselected.png"),
+  happy: require(path + "home/happy.png"),
+  calm: require(path + "home/calm.png"),
+  manic: require(path + "home/manic.png"),
+  relaxed: require(path + "home/relaxed.png"),
+  angry: require(path + "home/angry.png"),
+  calendar: require(path + "home/calendar.png"),
+  meetup: require(path + "home/meetup.png"),
+  weird: require(path + "home/weird.png"),
+  journal: require(path + "home/journal.png"),
+  library: require(path + "home/library.png"),
+  quote: require(path + "home/quote.png"),
+  sessionsSelected: require(path + "sessions/sessionsSelected.png"),
+  sessionsUnselected: require(path + "sessions/sessionsUnselected.png"),
+  play: require(path + "sessions/play.png"),
+  updown: require(path + "sessions/updown.png"),
+  downarrow: require(path + "sessions/downarrow.png"),
+  human1: require(path + "sessions/human1.png"),
+  human2: require(path + "sessions/human2.png"),
+  human3: require(path + "sessions/human3.png"),
+  whitecalendar: require(path + "sessions/whitecalendar.png"),
+  whiteclock: require(path + "sessions/whiteclock.png"),
+  commentsSelected: require(path + "comments/commentsSelected.png"),
+  commentsUnselected: require(path + "comments/commentsUnselected.png"),
+  mona: require(path + "comments/mona.png"),
+  communitySelected: require(path + "community/communitySelected.png"),
+  communityUnselected: require(path + "community/communityUnselected.png"),
+  human4: require(path + "community/human4.png"),
+  human5: require(path + "community/human5.png"),
+  human6: require(path + "community/human6.png"),
+  human7: require(path + "community/human7.png"),
+  thumbactive: require(path + "community/thumbactive.png"),
+  thumbinactive: require(path + "community/thumbinactive.png"),
+  comment: require(path + "community/comment.png"),
+  share: require(path + "community/share.png"),
+  pencil: require(path + "community/pencil.png"),
+  selection: require(path + "selection.png"),
+  profilePicture: require(path + "profilePicture.png"),
+  notification: require(path + "notification.png"),
+};
+
+export default images;

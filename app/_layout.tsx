@@ -1,20 +1,38 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import "../global.css";
+import React from "react";
+import { SplashScreen, Stack } from "expo-router";
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import { Platform } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import * as ExpoNavigationBar from "expo-navigation-bar";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+if (Platform.OS === "android") {
+  ExpoNavigationBar.setVisibilityAsync("hidden");
+  ExpoNavigationBar.setBehaviorAsync("overlay-swipe");
+}
+
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    "Epilogue-Regular": require("@/assets/fonts/Epilogue/Epilogue-Regular.ttf"),
+    "Epilogue-Bold": require("@/assets/fonts/Epilogue/Epilogue-Bold.ttf"),
+    "Epilogue-SemiBold": require("@/assets/fonts/Epilogue/Epilogue-SemiBold.ttf"),
+    "Epilogue-Medium": require("@/assets/fonts/Epilogue/Epilogue-Medium.ttf"),
+    "Epilogue-Light": require("@/assets/fonts/Epilogue/Epilogue-Light.ttf"),
+    "Epilogue-ExtraLight": require("@/assets/fonts/Epilogue/Epilogue-ExtraLight.ttf"),
+    "Epilogue-Thin": require("@/assets/fonts/Epilogue/Epilogue-Thin.ttf"),
+    "Epilogue-Black": require("@/assets/fonts/Epilogue/Epilogue-Black.ttf"),
+    "Epilogue-ExtraBold": require("@/assets/fonts/Epilogue/Epilogue-ExtraBold.ttf"),
+    "Rubik-Black": require("@/assets/fonts/Rubik/Rubik-Black.ttf"),
+    "Rubik-Bold": require("@/assets/fonts/Rubik/Rubik-Bold.ttf"),
+    "Rubik-ExtraBold": require("@/assets/fonts/Rubik/Rubik-ExtraBold.ttf"),
+    "Rubik-Light": require("@/assets/fonts/Rubik/Rubik-Light.ttf"),
+    "Rubik-Medium": require("@/assets/fonts/Rubik/Rubik-Medium.ttf"),
+    "Rubik-Regular": require("@/assets/fonts/Rubik/Rubik-Regular.ttf"),
+    "Rubik-SemiBold": require("@/assets/fonts/Rubik/Rubik-SemiBold.ttf"),
   });
 
   useEffect(() => {
@@ -23,17 +41,17 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+    <>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <StatusBar
+        style="dark"
+        hidden={false}
+        translucent={false}
+        backgroundColor="#FBFBFB"
+      />
+    </>
   );
 }
