@@ -7,6 +7,7 @@ import { Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import * as ExpoNavigationBar from "expo-navigation-bar";
+import AppLoading from "@/components/AppLoading";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,6 +41,10 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  if (!loaded) {
+    return <AppLoading />;
+  }
 
   return (
     <>
