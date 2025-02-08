@@ -74,7 +74,7 @@ const _layout = () => {
                 style={{
                   tintColor: focused ? "orange" : "#D9D8D8",
                   width: 31,
-                  height: 21.5,
+                  height: 21.6,
                 }}
               />
             </View>
